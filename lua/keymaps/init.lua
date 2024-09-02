@@ -37,7 +37,7 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 vim.keymap.set('n', 'ZS', ':w<cr>', { desc = 'Save buffer' })
 
 -- Peek suggestions
-vim.keymap.set('n', '<leader>cs', vim.lsp.buf.hover)
+-- vim.keymap.set('n', '<leader>cs', vim.lsp.buf.hover, { desc = 'Show [S]uggestions' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`

@@ -18,7 +18,6 @@ return { -- Fuzzy Finder (files, lsp, etc)
       end,
     },
     { 'nvim-telescope/telescope-ui-select.nvim' },
-
     -- Useful for getting pretty icons, but requires a Nerd Font.
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
   },
@@ -48,11 +47,12 @@ return { -- Fuzzy Finder (files, lsp, etc)
       -- You can put your default mappings / updates / etc. in here
       --  All the info you're looking for is in `:help telescope.setup()`
       --
-      -- defaults = {
-      --   mappings = {
-      --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-      --   },
-      -- },
+      defaults = {
+        path_display = { 'smart' },
+        mappings = {
+          i = { ['<c-enter>'] = 'to_fuzzy_refine' },
+        },
+      },
       -- pickers = {}
       extensions = {
         ['ui-select'] = {
@@ -97,8 +97,15 @@ return { -- Fuzzy Finder (files, lsp, etc)
     end, { desc = '[S]earch [/] in Open Files' })
 
     -- Shortcut for searching your Neovim configuration files
-    vim.keymap.set('n', '<leader>sn', function()
-      builtin.find_files { cwd = vim.fn.stdpath 'config' }
-    end, { desc = '[S]earch [N]eovim files' })
+    -- vim.keymap.set('n', '<leader>sn', function()
+    --   builtin.find_files { cwd = vim.fn.stdpath 'config' }
+    -- end, { desc = '[S]earch [N]eovim files' })
+    local notify = require('telescope').extensions.notify
+    vim.keymap.set('n', '<leader>sn', notify.notify, { desc = '[S]earch [N]otifications' })
+
+    local has_autosessions = pcall(require, 'auto-session')
+    if has_autosessions then
+      vim.keymap.set('n', '<leader>sS', '<cmd>SessionSearch<cr>', { desc = '[S]earch [S]ession' })
+    end
   end,
 }

@@ -19,6 +19,7 @@ return {
     sources = { 'filesystem', 'buffers', 'git_status' },
     filesystem = {
       window = {
+        position = 'right',
         mappings = {
           ['\\'] = 'close_window',
         },

@@ -10,6 +10,9 @@ vim.keymap.set('n', '<leader>cr', vim.lsp.buf.rename)
 -- Format document
 vim.keymap.set('n', '<leader>cf', vim.lsp.buf.format)
 
+-- Go to References
+vim.keymap.set('n', 'gr', vim.lsp.buf.references)
+
 -- Code action
 vim.keymap.set('n', '<leader>ca', function()
   vscode.call 'editor.action.quickFix'
@@ -22,6 +25,9 @@ end)
 
 -- Search file
 vim.keymap.set('n', '<leader>sf', '<cmd>Find<cr>')
+
+-- Search open tabs
+vim.keymap.set('n', '<leader><leader>', '<cmd>Find<cr>')
 
 -- Symbols in workspace
 vim.keymap.set('n', '<leader>ws', function()
@@ -66,3 +72,8 @@ end, { desc = 'unfold' })
 vim.keymap.set('n', 'zR', function()
   vscode.call 'editor.unfoldAll'
 end, { desc = 'unfold all' })
+
+-- Sidebar visibility (similar to neotree)
+vim.keymap.set('n', '\\', function()
+  vscode.call 'workbench.action.toggleSidebarVisibility'
+end)

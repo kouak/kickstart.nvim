@@ -45,6 +45,9 @@ local enabled = {
   'nvim-ts-context-commentstring',
   'ts-comments.nvim',
 
+  -- autopairs works fine
+  'nvim-autopairs',
+
   -- Enhanced repeat (.) command
   -- https://github.com/tpope/vim-repeat
   'vim-repeat',
