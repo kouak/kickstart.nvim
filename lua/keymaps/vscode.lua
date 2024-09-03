@@ -13,6 +13,11 @@ vim.keymap.set('n', '<leader>cf', vim.lsp.buf.format)
 -- Go to References
 vim.keymap.set('n', 'gr', vim.lsp.buf.references)
 
+-- Find references
+vim.keymap.set('n', '<leader>sr', function()
+  vscode.call 'references-view.findReferences'
+end)
+
 -- Code action
 vim.keymap.set('n', '<leader>ca', function()
   vscode.call 'editor.action.quickFix'
