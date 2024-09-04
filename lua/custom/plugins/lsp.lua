@@ -178,7 +178,11 @@ return { -- LSP Plugins
         -- But for many setups, the LSP (`tsserver`) will work just fine
         -- tsserver = {},
         vtsls = {
-          autoUseWorkspaceTsdk = true,
+          settings = {
+            vtsls = {
+              autoUseWorkspaceTsdk = true,
+            },
+          },
         },
         eslint = {},
         --
@@ -228,5 +232,8 @@ return { -- LSP Plugins
         },
       }
     end,
+  },
+  {
+    'yioneko/nvim-vtsls',
   },
 }
